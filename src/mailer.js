@@ -67,6 +67,8 @@ const setMessage = (body, empresa, files) => {
 const mailer = (body, files) => new Promise(async (res, rej) => {
     const empresa = await Empresa.findByPk(body.empresa_id);
 
+    console.log({empresa})
+
     const transporter = new Trasporter(
         empresa.smtp_mail_host,
         empresa.smtp_mail_port,

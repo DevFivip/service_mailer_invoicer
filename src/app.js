@@ -1,4 +1,4 @@
-require('dotenv').config();
+const process = require('dotenv').config();
 const nodemailer = require("nodemailer");
 const express = require('express')
 const cors = require('cors');
@@ -7,7 +7,6 @@ const fileUpload = require('express-fileupload');
 const bodyParser = require("body-parser");
 
 const { mailer } = require("./mailer");
-
 
 
 const app = express()
@@ -32,11 +31,12 @@ app.use(function (req, res, next) {
 const { Venta, Empresa } = require("../app/db");
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('welcome to fivip send mail')
 })
 
 app.post('/send', async (req, res) => {
     try {
+        console.log(req.body)
         const email = await mailer(req.body, req.files)
         res.status(200).json(email)
 
