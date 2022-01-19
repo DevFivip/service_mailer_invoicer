@@ -11,7 +11,7 @@ const { mailer } = require("./mailer");
 
 
 const app = express()
-const port = 3002
+const port = 3001
 const host = "0.0.0.0"
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(fileUpload());
